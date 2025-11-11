@@ -36,7 +36,7 @@ function InterestsPresenter({ data }: DefaultProps<PresenterDataType>) {
   return (
     <section className="w-full h-fit">
       <div className={cn(interestsPresenterStyles)}>
-        <h1 className="mb-2 text-white font-bold text-2xl">Interests</h1>
+        <h1 className="mb-2 text-white font-bold text-2xl">Interest</h1>
         <div className="lg:ml-6 ml-4 text-neutral-200">
           {nodeListOfInterestBlock}
         </div>
