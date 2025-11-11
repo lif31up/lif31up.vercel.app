@@ -56,7 +56,7 @@ function Presenter({ data }: DefaultProps<ProjectDataType[]>) {
   return (
     <section className="w-full h-fit lg:pb-8 pb-2 pt-4">
       <div className={cn(style)}>
-        <div className="lg:ml-0 ml-4">{nodeListOfProjects}</div>
+        <div className="lg:ml-0 ml-2">{nodeListOfProjects}</div>
       </div>
     </section>
   );
