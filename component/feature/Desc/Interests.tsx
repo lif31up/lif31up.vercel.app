@@ -37,12 +37,12 @@ function InterestsPresenter({ data }: DefaultProps<PresenterDataType>) {
     <section className="w-full h-fit">
       <div className={cn(interestsPresenterStyles)}>
         <h1 className="mb-2 text-white font-bold text-2xl">Interest</h1>
-        <div className="lg:ml-6 ml-4 text-neutral-200">
-          {nodeListOfInterestBlock}
+        <div className="w-full h-fit px-2 py-4 mb-8 bg-neutral-950 rounded">
+          <div className="lg:ml-6 ml-4 text-neutral-200">
+            {nodeListOfInterestBlock}
+          </div>
         </div>
-        <p className="mt-4 text-md text-neutral-400 pr-42 leading-tight pb-5 border-b border-neutral-800">
-          {data.desc}
-        </p>
+
       </div>
     </section>
   );

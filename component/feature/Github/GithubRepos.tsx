@@ -58,7 +58,7 @@ function RepoBlockRender({ data }: DefaultProps<RepoBlockDataType[]>) {
   };
   return (
     <section className={cn(style)}>
-      <h1 className="lg:ml-2 md:ml-0 text-white font-bold text-xl">
+      <h1 className="lg:ml-2 md:ml-0 mb-2 text-white font-bold lg:text-2xl text-xl">
         Repositories
       </h1>
       <>{nodeListOfRepoBlock}</>

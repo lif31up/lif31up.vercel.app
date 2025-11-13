@@ -14,7 +14,6 @@ export default function Home() {
       <RecoilRoot>
         <DescDataFetcher />
         <GithubProfile />
-        <Interests />
         <Projects />
         <GithubRepos />
       </RecoilRoot>
