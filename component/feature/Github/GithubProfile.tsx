@@ -49,23 +49,21 @@ function GithubProfilePresenter({ data }: DefaultProps<PresenterDataType>) {
   if (!github || !desc) return null;
   return (
     <section className={cn(GithubProfilePresenterStyle)}>
-      <div className="w-fit h-fit animate__animated animate__flipInY">
+      <section title="right" className="w-full h-fit flex-col lg:bg-neutral-950 bg-opacity-65  rounded-md lg:p-4 p-0">
         <Image
-          src={github.avatar_url}
-          alt="profile_img"
-          width={16 * 25}
-          height={16 * 25}
-          className="rounded-full"
-          style={{ boxShadow: "0 0 100vw 15vw rgba(240, 240, 240, 0.05)" }}
+            src={github.avatar_url}
+            alt="profile_img"
+            width={16 * 6}
+            height={16 * 6}
+            className="rounded-full border-2 border-neutral-800 mb-4"
+            style={{ boxShadow: "0 0 5vw 5vw rgba(240, 240, 240, 0.008)" }}
         />
-      </div>
-      <section title="right" className="w-full h-fit flex-col mt-2">
         <h2 className="text-md">{github.id}</h2>
         <div className="flex">
           <h1 className="text-6xl text-neutral-100">{github.login}</h1>
           <GithubLinkButton />
         </div>
-        <div className="flex text-neutral-400 items-center gap-2">
+        <div className="flex text-neutral-400 items-center gap-2 mb-1">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -100,7 +98,7 @@ function GithubProfilePresenter({ data }: DefaultProps<PresenterDataType>) {
             {github.following}
           </h2>
         </div>
-        <p className="text-neutral-400 pr-42 leading-tight mt-4 pb-5 border-b border-neutral-800">
+        <p className="lg:bg-neutral-900 text-neutral-400 leading-tight mt-3 p-2 pb-5 lg:rounded-md text-md mb-4">
           {desc.description}
         </p>
         <ShortcutList data={desc.shortcuts} />
@@ -110,8 +108,9 @@ function GithubProfilePresenter({ data }: DefaultProps<PresenterDataType>) {
 }
 const GithubProfilePresenterStyle: TailProperties = {
   typo: "text-neutral-400",
-  layout: "lg:flex gap-12 md:block",
-  box: "w-full h-fit pt-4 pb-4 lg:pb-12",
+  layout: "lg:flex items-center gap-12 md:block lg:mt-4 mt-0",
+  box: "w-full h-fit mb-4 lg:mb-12",
+  bg_border: ""
 };
 
 const GithubLinkButton = () => {

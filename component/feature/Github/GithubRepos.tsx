@@ -53,12 +53,12 @@ function RepoBlockRender({ data }: DefaultProps<RepoBlockDataType[]>) {
   });
   // Styling for the RepoBlockRender container
   const style: TailProperties = {
-    box: "w-full h-fit lg:pt-4 pt-8",
-    layout: "grid gap-2",
+    box: "w-full h-fit lg:mt-4 mt-8",
+    layout: "grid gap-3",
   };
   return (
     <section className={cn(style)}>
-      <h1 className="lg:ml-2 md:ml-0 mb-2 text-white font-bold lg:text-2xl text-xl">
+      <h1 className="lg:mx-2 mb-2 text-white font-bold lg:text-2xl text-xl">
         Repositories
       </h1>
       <>{nodeListOfRepoBlock}</>
@@ -81,9 +81,9 @@ function RepoBlock({ data }: DefaultProps<RepoBlockDataType>) {
   // Styling for the Presenter container
   const style: TailProperties = {
     layout: "grid",
-    box: "w-full h-fit pt-2 pb-3 lg:px-4 md:px-0",
+    box: "w-full h-fit pt-2 pb-3 lg:px-4 px-3",
     typo: "text-neutral-400",
-    bg_border: "xl:bg-neutral-950 md:bg-transparent xl:hover:bg-neutral-900",
+    bg_border: "bg-neutral-950 bg-opacity-65 hover:bg-neutral-900",
     etc: "rounded-md border-neutral-600 cursor-pointer",
   };
   return (
@@ -110,7 +110,7 @@ function RepoBlock({ data }: DefaultProps<RepoBlockDataType>) {
         </svg>
         <h1 className="w-fit text-neutral-200 font-medium">{data.name}</h1>
       </div>
-      <p className="text-sm text-left">
+      <p className="text-md text-left">
         {data.description ? data.description : data.url}
       </p>
       {data.language ? (

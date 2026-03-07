@@ -18,10 +18,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Topbar data={{ height: "3.5rem" }} />
-        <main className="xl:px-80 md:px-16 px-4">{children}</main>
-      </body>
+    <body className={inter.className} style={{width: "100%",}}>
+
+    <section className="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden waves_body">
+      <div className="wave"></div>
+      <div className="wave"></div>
+      <div className="wave"></div>
+    </section>
+    <Topbar data={{height: "3.5rem"}}/>
+    <main className="xl:px-80 px-4">{children}</main>
+    </body>
     </html>
   );
 }
