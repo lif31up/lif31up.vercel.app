@@ -26,17 +26,18 @@ function Topbar({ data }: DefaultProps<TopbarDataType>) {
   const style: TailProperties = {
     layout: "flex items-center justify-center gap-4",
     bg_border: "bg-neutral-950",
-    box: "w-fit h-full px-3 pb-1",
+    box: "w-fit px-3 pb-1",
+    etc: "lg:rounded-xs rounded-md"
   }; // style
   // Render the topbar component
   return (
     <RecoilRoot>
       <section
-        className="w-full flex items-center justify-center py-4 transition-transform ease-in-out rounded-md"
+        className="w-full flex items-center justify-center py-4 transition-transform ease-in-out"
         ref={elementRef}
         id={topbarId}
       >
-        <div className={cn(style)} style={{ height: data.height }}>
+        <div className={cn(style)} style={{ height: data.height}}>
           <ToTopButton />
           <div className="flex-col gap-1">
             <h1 className="font-bold text-sm text-neutral-200">lif31up</h1>

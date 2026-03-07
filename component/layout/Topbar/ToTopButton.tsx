@@ -7,8 +7,7 @@ function ToTopButton({}) {
   /* Handle click event:
    * Scrolls the window to the top with smooth animation.*/
   const onClick = () => {
-    // @ts-ignore
-    document.getElementById("pyro_body--0").style.animationIterationCount = "4";
+    // document.getElementById("pyro_body--0").style.animationIterationCount = "4";
   };
   // Render the button and pass the Presenter component for styling and visuals
   return (
