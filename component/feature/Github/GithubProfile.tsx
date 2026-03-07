@@ -98,7 +98,7 @@ function GithubProfilePresenter({ data }: DefaultProps<PresenterDataType>) {
             {github.following}
           </h2>
         </div>
-        <p className="lg:bg-neutral-900 text-neutral-400 leading-tight mt-3 p-2 pb-5 lg:rounded-md text-md mb-4">
+        <p className="lg:bg-neutral-900 text-neutral-400 leading-tight mt-3 lg:p-2 pb-5 lg:rounded-md text-md mb-4">
           {desc.description}
         </p>
         <ShortcutList data={desc.shortcuts} />
