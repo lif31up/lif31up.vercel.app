@@ -24,24 +24,24 @@ function Topbar({ data }: DefaultProps<TopbarDataType>) {
   if (!data) return <></>;
   // Styling for the topbar container
   const style: TailProperties = {
-    layout: "flex items-center justify-start gap-4",
-    bg_border: "bg-transparent",
-    box: "w-full px-4 pb-1",
+    layout: "flex items-center justify-center gap-4",
+    bg_border: "bg-neutral-950",
+    box: "w-fit h-full px-3 pb-1",
   }; // style
   // Render the topbar component
   return (
     <RecoilRoot>
       <section
-        className="h-fit w-full z-50 top-0 left-0 fixed shadow-black shadow-xs"
+        className="w-full flex items-center justify-center py-4 transition-transform ease-in-out rounded-md"
         ref={elementRef}
         id={topbarId}
       >
         <div className={cn(style)} style={{ height: data.height }}>
           <ToTopButton />
           <div className="flex-col gap-1">
-            <h1 className="font-bold text-sm text-neutral-200">Lif31up</h1>
+            <h1 className="font-bold text-sm text-neutral-200">lif31up</h1>
             <h2 className="font-medium text-xs text-neutral-400">
-              Personal Website
+              Growing Frontend Developer
             </h2>
           </div>
         </div>

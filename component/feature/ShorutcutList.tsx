@@ -38,14 +38,14 @@ function Shortcut({ data }: DefaultProps<ShortcutDataType>) {
           color: "transparent",
         }}
       />
-      { window.innerWidth > 1005 ? <h1 className="text-xs mb-0.5">{data.name}</h1> : <></> }
+      { window.innerWidth > 1005 ? <h1 className="text-sm first-letter:uppercase mb-0.5">{data.name}</h1> : <></> }
     </button>
   );
 }
 const ShortcutStyle: TailProperties = {
-  box: "w-12 h-12 lg:w-fit lg:h-fit lg:py-1 lg:px-2",
+  box: "w-12 h-12 lg:w-fit lg:h-fit lg:py-1 lg:-mt-0.5 lg:px-3 ml-1",
   layout: "flex items-center justify-center lg:gap-1.5",
-  bg_border: "bg-neutral-950 hover:bg-neutral-900",
+  bg_border: "bg-neutral-900 hover:bg-neutral-800 ",
   typo: "text-white fill-white",
-  etc: "rounded-full",
+  etc: "rounded-md",
 };

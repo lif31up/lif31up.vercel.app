@@ -30,6 +30,7 @@ function Presenter({ data }: DefaultProps<ProjectDataType[]>) {
         <div>
           <a
             href={element.url0}
+            target="_blank"
             className="text-lg font-bold _font-roboto text-blue-400 underline"
             title={element.url0}
           >
@@ -38,6 +39,7 @@ function Presenter({ data }: DefaultProps<ProjectDataType[]>) {
           &nbsp;
           <a
             href={element.url1}
+            target="_blank"
             className="text-xs font-bold text-blue-600 underline"
             title={element.url1}
           >

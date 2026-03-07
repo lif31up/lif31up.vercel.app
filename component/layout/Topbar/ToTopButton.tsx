@@ -7,7 +7,8 @@ function ToTopButton({}) {
   /* Handle click event:
    * Scrolls the window to the top with smooth animation.*/
   const onClick = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    // @ts-ignore
+    document.getElementById("pyro_body--0").style.animationIterationCount = "4";
   };
   // Render the button and pass the Presenter component for styling and visuals
   return (
@@ -25,12 +26,12 @@ function Presenter({}: DefaultProps<never>) {
     box: `w-10 h-10 -m-1 bg-neutral-950 hover:bg-neutral-900 rounded-full`,
     layout: "flex items-center justify-center",
     typo: "text-slate-300",
-    etc: "shadow-base",
+    etc: "",
   }; // style
   // Render the styled button with an animated star icon
   return (
     <div className={cn(style)}>
-      <img src="/star_anime.gif" alt="star_anime" width={24} height={24} />
+      <img src="/star_anime.gif" alt="star_anime" width={24} height={24}/>
     </div>
   );
 } // Presenter()
