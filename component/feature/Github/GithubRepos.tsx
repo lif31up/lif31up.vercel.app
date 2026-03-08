@@ -61,7 +61,7 @@ function RepoBlockRender({ data }: DefaultProps<RepoBlockDataType[]>) {
       <h1 className="lg:mx-2 w-fit mb-2 text-white font-bold lg:text-2xl text-xl">
         Repositories
       </h1>
-      <>{nodeListOfRepoBlock}</>
+      <section className="grid gap-2">{nodeListOfRepoBlock}</section>
     </section>
   );
 } // RepoBlockRender(Renderer)
