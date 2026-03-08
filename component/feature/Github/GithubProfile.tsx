@@ -58,7 +58,7 @@ function GithubProfilePresenter({ data }: DefaultProps<PresenterDataType>) {
             className="rounded-full border-2 border-neutral-800 mb-4"
             style={{ boxShadow: "0 0 5vw 5vw rgba(240, 240, 240, 0.008)" }}
         />
-        <h2 className="text-sm">{github.id}</h2>
+        <h2 className="text-xs">{github.id}</h2>
         <div className="flex">
           <h1 className="text-6xl text-neutral-100">{github.login}</h1>
           <GithubLinkButton />
@@ -82,9 +82,10 @@ function GithubProfilePresenter({ data }: DefaultProps<PresenterDataType>) {
               strokeWidth="1.5"
             />
           </svg>
-          <h1 className="">{github.location}</h1>
+          <h1>{github.location}</h1>
         </div>
-        <h1 className="text-neutral-100">
+        <section className="hidden">
+          <h1 className="text-neutral-100">
           <b>Repos: </b>
           {github.public_repos}
         </h1>
@@ -98,6 +99,7 @@ function GithubProfilePresenter({ data }: DefaultProps<PresenterDataType>) {
             {github.following}
           </h2>
         </div>
+        </section>
         <p className="lg:bg-neutral-900 text-neutral-400 leading-tight mt-3 lg:p-2 pb-5 lg:rounded-md text-md">
           {desc.description}
         </p>
