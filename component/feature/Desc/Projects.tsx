@@ -56,7 +56,7 @@ function Presenter({ data }: DefaultProps<ProjectDataType[]>) {
     typo: "text-white",
   };
   return (
-    <section className="w-full h-fit lg:pb-8 pb-2 pt-4">
+    <section className="w-full h-fit lg:pb-8 pb-2 pt-4 lg:mt-0 mt-2">
       <div className={cn(style)}>
         <h1 className="lg:mb-2 mb-4 text-white font-bold lg:text-2xl text-xl">Projects</h1>
         <div>{nodeListOfProjects}</div>
