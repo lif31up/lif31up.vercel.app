@@ -26,7 +26,7 @@ export default function RootLayout({
       <div className="wave"></div>
     </div>
     <Topbar data={{height: "3.5rem"}}/>
-    <main className="xl:px-80 px-4">{children}</main>
+    <main>{children}</main>
     </body>
     </html>
   );
