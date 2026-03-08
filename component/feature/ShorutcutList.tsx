@@ -16,7 +16,7 @@ export default function ShortcutList({
     nodeListOfShortcut.push(<Shortcut data={element} key={index} />);
   });
   return (
-    <section className={"mt-3 -ml-1 flex gap-2"}>{nodeListOfShortcut}</section>
+    <section className={"-ml-1 flex lg:gap-2 gap-1"}>{nodeListOfShortcut}</section>
   );
 }
 
@@ -34,18 +34,18 @@ function Shortcut({ data }: DefaultProps<ShortcutDataType>) {
           svg_url: data.svg_url,
           width: 16,
           height: 16,
-          fill: "white",
+          fill: "currentColor",
           color: "transparent",
         }}
       />
-      { window.innerWidth > 1005 ? <h1 className="text-sm first-letter:uppercase mb-0.5">{data.name}</h1> : <></> }
+      { window.innerWidth > 0 ? <h1 className="first-letter:uppercase mb-0.5">{data.name}</h1> : <></> }
     </button>
   );
 }
 const ShortcutStyle: TailProperties = {
-  box: "w-12 h-12 lg:w-fit lg:h-fit lg:py-1 lg:-mt-0.5 lg:px-3 ml-1",
-  layout: "flex items-center justify-center lg:gap-1.5",
-  bg_border: "bg-neutral-900 hover:bg-neutral-800 ",
-  typo: "text-white fill-white",
-  etc: "rounded-md",
+    box: "lg:w-12 lg:h-12 lg:w-fit lg:h-fit lg:py-1 lg:-mt-0.5 lg:px-3 w-fit h-8 px-2 ml-1",
+  layout: "flex items-center justify-center lg:gap-1.5 gap-2",
+  bg_border: "lg:bg-neutral-900 lg:hover:bg-neutral-700 bg-neutral-900 hover:bg-neutral-800 bg-opacity-80 lg:border-0 border-2 border-neutral-800",
+  typo: "text-white fill-white text-xs text-neutral-300 font-medium",
+  etc: "lg:rounded-md rounded-full",
 };
