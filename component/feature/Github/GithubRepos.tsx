@@ -54,11 +54,11 @@ function RepoBlockRender({ data }: DefaultProps<RepoBlockDataType[]>) {
   // Styling for the RepoBlockRender container
   const style: TailProperties = {
     box: "w-full h-fit lg:mt-4 mt-8",
-    layout: "grid gap-3",
+    layout: "flex-col gap-3",
   };
   return (
     <section className={cn(style)}>
-      <h1 className="lg:mx-2 mb-2 text-white font-bold lg:text-2xl text-xl">
+      <h1 className="lg:mx-2 w-fit mb-2 text-white font-bold lg:text-2xl text-xl">
         Repositories
       </h1>
       <>{nodeListOfRepoBlock}</>
@@ -92,7 +92,7 @@ function RepoBlock({ data }: DefaultProps<RepoBlockDataType>) {
       onClick={() => window.open(data.svn_url)}
       title={data.url}
     >
-      <div className="flex items-center gap-2 text-neutral-400">
+      <div className="w-full flex items-center gap-2 text-neutral-400">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -110,7 +110,7 @@ function RepoBlock({ data }: DefaultProps<RepoBlockDataType>) {
         </svg>
         <h1 className="w-fit text-neutral-200 font-medium">{data.name}</h1>
       </div>
-      <p className="text-md text-left">
+      <p className="w-full text-md text-left">
         {data.description ? data.description : data.url}
       </p>
       {data.language ? (

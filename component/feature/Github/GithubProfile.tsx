@@ -49,7 +49,7 @@ function GithubProfilePresenter({ data }: DefaultProps<PresenterDataType>) {
   if (!github || !desc) return null;
   return (
     <section className={cn(GithubProfilePresenterStyle)}>
-      <section title="right" className="w-full h-fit flex-col lg:bg-neutral-950 bg-opacity-65  rounded-md lg:p-4 p-0">
+      <section title="right" className="w-full h-fit flex-col lg:p-4 p-0">
         <Image
             src={github.avatar_url}
             alt="profile_img"
@@ -58,7 +58,7 @@ function GithubProfilePresenter({ data }: DefaultProps<PresenterDataType>) {
             className="rounded-full border-2 border-neutral-800 mb-4"
             style={{ boxShadow: "0 0 5vw 5vw rgba(240, 240, 240, 0.008)" }}
         />
-        <h2 className="text-md">{github.id}</h2>
+        <h2 className="text-xs">{github.id}</h2>
         <div className="flex">
           <h1 className="text-6xl text-neutral-100">{github.login}</h1>
           <GithubLinkButton />
@@ -84,13 +84,14 @@ function GithubProfilePresenter({ data }: DefaultProps<PresenterDataType>) {
           </svg>
           <h1>{github.location}</h1>
         </div>
-        <h1 className="text-neutral-100">
+        <section className="hidden">
+          <h1 className="text-neutral-100">
           <b>Repos: </b>
           {github.public_repos}
         </h1>
         <div className="flex gap-2 text-neutral-100">
           <h1>
-            <b>Follwers: </b>
+            <b>Followers: </b>
             {github.followers}
           </h1>
           <h2>
@@ -98,7 +99,8 @@ function GithubProfilePresenter({ data }: DefaultProps<PresenterDataType>) {
             {github.following}
           </h2>
         </div>
-        <p className="lg:bg-neutral-900 text-neutral-400 leading-tight mt-3 lg:p-2 pb-5 lg:rounded-md text-md mb-4">
+        </section>
+        <p className="lg:bg-neutral-900 text-neutral-400 leading-tight mt-3 lg:p-2 pb-5 lg:rounded-md text-md">
           {desc.description}
         </p>
         <ShortcutList data={desc.shortcuts} />
