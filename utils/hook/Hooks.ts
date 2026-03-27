@@ -44,3 +44,4 @@ export function useActivate(elementRef: MutableRefObject<any>, data: any) {
     } // if
   }, []); // Dependency array is empty to ensure this effect runs only once on mount
 }
+

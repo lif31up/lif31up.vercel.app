@@ -10,6 +10,7 @@ import ReactQueryProvider, {
 import { DescInterface } from "@/utils/Interfaces";
 import { useRecoilValue } from "recoil";
 import ShortcutList from "@/component/feature/ShorutcutList";
+import {MutableRefObject, useRef} from "react";
 
 // Type definitions
 type PresenterDataType = {
@@ -46,9 +47,10 @@ function GithubProfilePresenter({ data }: DefaultProps<PresenterDataType>) {
   if (!data) return null;
   const github: GithubDataType = data.github;
   const desc: any = data.desc;
+  const id: string = "github-profile"
   if (!github || !desc) return null;
   return (
-    <section className={cn(GithubProfilePresenterStyle)}>
+    <section id={id} className={cn(GithubProfilePresenterStyle)}>
       <section title="right" className="w-full h-fit flex-col lg:p-4 p-0">
         <Image
             src={github.avatar_url}
@@ -105,13 +107,16 @@ function GithubProfilePresenter({ data }: DefaultProps<PresenterDataType>) {
         </p>
         <ShortcutList data={desc.shortcuts} />
       </section>
+      <section className="absolute bottom-0 flex items-center justify-center w-full h-fit py-4 lg:hidden">
+        <ScrollButton data={{target: id, behavior: "smooth"}}/>
+      </section>
     </section>
   );
 }
 const GithubProfilePresenterStyle: TailProperties = {
   typo: "text-neutral-400",
-  layout: "lg:flex items-center gap-12 md:block lg:mt-4 mt-0",
-  box: "w-full h-fit mb-4 lg:mb-12",
+  layout: "lg:flex items-center gap-12 md:block lg:mt-4 mt-0 relative",
+  box: "w-full lg:h-fit h-screen mb-4 lg:mb-12",
   bg_border: ""
 };
 
@@ -153,3 +158,33 @@ const GithubButtonStyle: TailProperties = {
   etc: "rounded-full",
   box: "w-fit h-fit p-1",
 };
+
+type ScrollButtonData = {target: string; behavior: string}
+function ScrollButton({data, className}: DefaultProps<ScrollButtonData>) {
+  if (!data) return <></>;
+  return <button className={cn(ScrollButtonStyle) + ' ' + className} onClick={()=> ScrollButtonClickHandler(data)}>
+    <ScrollButtonPresenter/>
+  </button>
+} // ScrollButton()
+
+function ScrollButtonClickHandler(data: ScrollButtonData) {
+  if (!data) return;
+  const {target, behavior}: ScrollButtonData = data;
+  const element: HTMLElement | null = document.getElementById(target);
+  if (!element) return;
+  const elementBottom = element.offsetTop + element.offsetHeight;
+  window.scrollTo({
+    top: elementBottom, behavior: "smooth"
+  });
+  return;
+} // ScrollButtonClickHandler()
+
+function ScrollButtonPresenter() {
+  return <h1>SCROLL DOWN</h1>
+}
+
+const ScrollButtonStyle: TailProperties = {
+  box: "",
+  bg_border: "",
+  layout: ""
+} // ScrollButtonStyle
