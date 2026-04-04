@@ -1,3 +1,9 @@
 ._wh-screen {
   width: 100vw; height: 100vh;
 }  // every user-defined class has prefix '_' to be seperated from tailwind css classes
+
+._no-scrollbar::-webkit-scrollbar {
+  display: none;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}

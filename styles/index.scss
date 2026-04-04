@@ -4,7 +4,16 @@
 @import "animation";
 
 html {
-  font-size: 16px; color: black; font-family: "Noto Sans KR", sans-serif;
+  font-size: 16px; color: white; font-family: "Noto Sans KR", serif;
+  scroll-behavior: smooth;
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+body {
+  height: fit-content;
+  background: black;
 }
 
 :root {

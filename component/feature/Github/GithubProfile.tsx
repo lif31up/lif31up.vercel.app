@@ -3,20 +3,29 @@ import TailProperties, { cn } from "@/styles/TailProperties";
 import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
 import ReactQueryProvider, {
-  descDataAtom,
+  descDataAtom, DescDataType,
   githubDataQueryFn,
   GithubDataType,
 } from "@/utils/ReactQuery";
-import { DescInterface } from "@/utils/Interfaces";
 import { useRecoilValue } from "recoil";
 import ShortcutList from "@/component/feature/ShorutcutList";
-import {MutableRefObject, useRef} from "react";
+import ObserverContainer from "@/component/common/ObserverContainer";
 
 // Type definitions
 type PresenterDataType = {
   github: GithubDataType;
-  desc: DescInterface;
+  desc: DescDataType;
 };
+
+const offlineGithubData = {
+  avatar_url: "https://avatars.githubusercontent.com/u/105752792?v=4",
+  login: "string",
+  id: "string",
+  location: "string",
+  public_repos: "string",
+  followers: "string",
+  following: "string",
+}; // PresenterDataType
 
 // Main Function
 export default function GithubProfile() {
@@ -38,34 +47,41 @@ function GithubProfileContainer() {
     queryFn: async () => await githubDataQueryFn(),
     queryKey: ["github-profile"],
   });
-  if (isLoadingGithub || isErrorGithub || !descData) return <></>;
+  if (isLoadingGithub) return defaultPresent;
+  if (!descData) return defaultPresent;
+  if (!github) return <GithubProfilePresenter data={{ github: offlineGithubData, desc: descData }} />;
   return <GithubProfilePresenter data={{ github: github, desc: descData }} />;
 }
-
+const defaultPresent = <section style={{height: "100vh"}}/>
 // PresenterComponent
 function GithubProfilePresenter({ data }: DefaultProps<PresenterDataType>) {
-  if (!data) return null;
+  if (!data) return defaultPresent;
   const github: GithubDataType = data.github;
-  const desc: any = data.desc;
+  const desc: DescDataType = data.desc;
   const id: string = "github-profile"
-  if (!github || !desc) return null;
   return (
     <section id={id} className={cn(GithubProfilePresenterStyle)}>
       <section title="right" className="w-full h-fit flex-col lg:p-4 p-0">
         <Image
             src={github.avatar_url}
             alt="profile_img"
-            width={16 * 6}
-            height={16 * 6}
-            className="rounded-full border-2 border-neutral-800 mb-4"
+            width={16 * 3}
+            height={16 * 3}
+            className="hidden rounded-full border-2 border-neutral-800 mb-4"
             style={{ boxShadow: "0 0 5vw 5vw rgba(240, 240, 240, 0.008)" }}
         />
-        <h2 className="text-xs">{github.id}</h2>
-        <div className="flex">
-          <h1 className="text-6xl text-neutral-100">{github.login}</h1>
-          <GithubLinkButton />
-        </div>
-        <div className="flex text-neutral-400 items-center gap-2 mb-1">
+        <ObserverContainer animation="_fadeInUp" id="section-1-h1" delay={100} threshold={0.5}>
+          <h1 className="text-3xl _font-notosans font-normal leading-tight">
+            🔥안녕하세요
+          </h1>
+          <div className="flex">
+            <h1 className="text-4xl _font-notosans font-normal leading-tight">
+              프론트엔드와 디자인 최적화를 공부해온 한명환입니다.
+            </h1>
+            <GithubLinkButton />
+          </div>
+        </ObserverContainer>
+        <div className="hidden text-neutral-400 items-center gap-2 mb-1">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -86,26 +102,10 @@ function GithubProfilePresenter({ data }: DefaultProps<PresenterDataType>) {
           </svg>
           <h1>{github.location}</h1>
         </div>
-        <section className="hidden">
-          <h1 className="text-neutral-100">
-          <b>Repos: </b>
-          {github.public_repos}
-        </h1>
-        <div className="flex gap-2 text-neutral-100">
-          <h1>
-            <b>Followers: </b>
-            {github.followers}
-          </h1>
-          <h2>
-            <b>Following: </b>
-            {github.following}
-          </h2>
-        </div>
-        </section>
-        <p className="lg:bg-neutral-900 text-neutral-400 leading-tight mt-3 lg:p-2 pb-5 lg:rounded-md text-md">
-          {desc.description}
+        <p className="select-none text-white text-opacity-70 mt-4 lg:bg-white lg:bg-opacity-5 leading-6 px-6 py-5 lg:rounded-3xl text-base">
+          안녕하세요. 저는 프론트엔드 개발자 한명환입니다. 제 특기는 최신 웹 기술을 활용해 직관적이고 반응성 높은 인터페이스의 구축입니다. <abbr className="italic font-bold">같은 구조의 인터페이스여도 시각적 디테일, 에니메이션 등에 따라 사용자는 완전 다른 경험을 한다</abbr>가 제 웹 개발 모토입니다.
         </p>
-        <ShortcutList data={desc.shortcuts} />
+        <ShortcutList data={desc.shortcuts}/>
       </section>
       <section className="absolute bottom-0 flex items-center justify-center w-full h-fit py-4 lg:hidden">
         <ScrollButton data={{target: id, behavior: "smooth"}}/>
@@ -114,7 +114,7 @@ function GithubProfilePresenter({ data }: DefaultProps<PresenterDataType>) {
   );
 }
 const GithubProfilePresenterStyle: TailProperties = {
-  typo: "text-neutral-400",
+  typo: "",
   layout: "lg:flex items-center gap-12 md:block lg:mt-4 mt-0 relative",
   box: "w-full lg:h-fit h-screen mb-4 lg:mb-12",
   bg_border: ""

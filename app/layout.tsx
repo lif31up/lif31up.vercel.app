@@ -19,14 +19,15 @@ export default function RootLayout({
   return (
     <html lang="en">
     <body className={inter.className}>
-
-    <div className="waves_body">
-      <div className="wave"></div>
-      <div className="wave"></div>
-      <div className="wave"></div>
-    </div>
-    <Topbar data={{height: "3.5rem"}}/>
+    <div className="snap-start"/>
+    <Topbar data={{height: "3rem"}} />
     <main>{children}</main>
+    <div className="snap-start"/>
+    <div className="_waves_body fixed top-0 left-0">
+      <div className="_wave"/>
+      <div className="_wave"/>
+      <div className="_wave"/>
+    </div>
     </body>
     </html>
   );

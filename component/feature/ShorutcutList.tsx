@@ -8,7 +8,7 @@ import { ShortcutDataType } from "@/utils/ReactQuery";
 
 // Main Component
 export default function ShortcutList({
-  data,
+  data, className,
 }: DefaultProps<ShortcutDataType[]>) {
   if (!data) return <></>;
   const nodeListOfShortcut: ReactElement[] = [];
@@ -16,7 +16,7 @@ export default function ShortcutList({
     nodeListOfShortcut.push(<Shortcut data={element} key={index} />);
   });
   return (
-    <section className={"-ml-1 flex lg:gap-2 gap-1 lg:mt-4 "}>{nodeListOfShortcut}</section>
+    <section className={"-ml-1 flex lg:gap-2 gap-1 lg:mt-5"}>{nodeListOfShortcut}</section>
   );
 }
 
@@ -43,9 +43,9 @@ function Shortcut({ data }: DefaultProps<ShortcutDataType>) {
   );
 }
 const ShortcutStyle: TailProperties = {
-    box: "lg:w-12 lg:h-12 lg:w-fit lg:h-fit lg:py-1 lg:-mt-0.5 lg:px-3 w-fit h-8 px-2 ml-1",
+  box: "lg:w-12 lg:h-12 lg:w-fit lg:h-fit lg:py-3 lg:-mt-0.5 lg:px-5 w-fit h-8 px-4 ml-1",
   layout: "flex items-center justify-center lg:gap-1.5 gap-2",
-  bg_border: "lg:bg-neutral-900 lg:hover:bg-neutral-800 bg-neutral-900 hover:bg-neutral-800 bg-opacity-80 border-2 border-neutral-800",
+  bg_border: "bg-white lg:bg-opacity-5 lg:hover:bg-opacity-10 hover:bg-opacity-10 ",
   typo: "text-xs text-neutral-400 font-medium",
   etc: "rounded-full",
 };
