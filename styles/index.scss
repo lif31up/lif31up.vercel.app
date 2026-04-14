@@ -4,7 +4,9 @@
 @import "animation";
 
 html {
-  font-size: 16px; color: white; font-family: "Noto Sans KR", serif;
+  font-size: 16px;
+  color: white;
+  font-family: "Noto Sans KR", serif;
   scroll-behavior: smooth;
   height: 100vh;
   overflow-y: scroll;
@@ -16,6 +18,7 @@ body {
   background: black;
 }
 
+// Do not use HSL or HEX color values, because they are not supported in Safari for some reason. Use RGB instead.
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

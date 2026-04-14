@@ -5,14 +5,16 @@ import { RecoilRoot } from "recoil";
 import DefaultProps from "@/utils/DefaultProps";
 import { useRef } from "react";
 import { useActivate } from "@/utils/hook/Hooks";
+import PopUp from "@/component/common/PopUp";
 
-const topbarId: string = "topbar--0";
+
 type TopbarDataType = { height: string }; // TopbarDataType
 
 function Topbar({ data, className }: DefaultProps<TopbarDataType>) {
   const elementRef = useRef<any>(null);
   useActivate(elementRef, data);
   if (!data) return <></>;
+  const id: string = "topbar--0";
   const style: TailProperties = {
     box: "w-full h-fit",
     layout: "flex items-center justify-between px-8 pt-4",
@@ -24,7 +26,7 @@ function Topbar({ data, className }: DefaultProps<TopbarDataType>) {
       <section
         className={cn(style) + " " + className}
         ref={elementRef}
-        id={topbarId}
+        id={id}
         style={{transitionDuration: "1000ms"}}
       >
         <section className="flex items-center gap-1.5">
@@ -38,24 +40,25 @@ function Topbar({ data, className }: DefaultProps<TopbarDataType>) {
           <button>
             <MoreVerticalCircle01Icon className="opacity-70"/>
           </button>
-          <button title="popup" className={cn(PopupStyle)} style={{ height: data.height}}>
+          <button title="hero" className={cn(HeroButtonStyle)} style={{ height: data.height}}>
             <h2 className="mt-0.5 font-medium _font-notosans text-sm">
               이 웹 서비스의 레포지토리
             </h2>
           </button>
         </section>
       </section>
+      <PopUp />
     </RecoilRoot>
   );
 } // Topbar()
 export default Topbar;
 
-const PopupStyle: TailProperties = {
+const HeroButtonStyle: TailProperties = {
   layout: "flex items-center justify-center gap-4",
-  bg_border: "bg-indigo-600 bg-opacity-50",
+  bg_border: "bg-indigo-600 bg-opacity-80",
   box: "w-fit px-6 pb-1",
   etc: "lg:rounded-xs rounded-full",
-  typo: "text-blue-200"
+  typo: "text-white text-opacity-70",
 }; // style
 
 const FirstBracketIcon = (props: React.SVGProps<SVGSVGElement>) => (
