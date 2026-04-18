@@ -18,12 +18,12 @@ function PopUpPresenter() {
     box: "w-full h-16 px-4 pb-1",
     layout: "flex items-center justify-start",
     bg_border: "bg-transparent hover:bg-white hover:bg-opacity-15",
-    typo: "_font-notosans text-xs text-white text-opacity-70 font-semibold",
+    typo: "_font-notosans text-xs text-white text-opacity-90 font-semibold",
     etc: "relative z-10 rounded-md cursor-pointer"
   } // style
   const clickHandler = () => setIsActive(false);
   if (isActive) return (
-    <section className="w-full px-6 mt-4 absolute">
+    <section className="w-full px-2 mt-4 absolute lg:display hidden">
       <div id={id} className={cn(style)} onClick={clickHandler}>
         <InformationCircleIcon />
         <div className="absolute left-14">

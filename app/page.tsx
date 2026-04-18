@@ -11,7 +11,7 @@ export default function Home() {
     <>
       <RecoilRoot>
         <DescDataFetcher />
-        <Hero className="xl:px-80 px-4 xl:mt-32"/>
+        <Hero className="xl:px-72 px-4 xl:mt-32"/>
         <div className="snap-start"/>
         <StoryBoard />
         <div title="end" className="snap-start"/>

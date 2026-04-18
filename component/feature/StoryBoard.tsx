@@ -24,12 +24,12 @@ function StoryBoard() {
         <section className="mt-16 grid justify-items-center">
           <div className="flex w-fit">
             <h1 className="text-3xl text-neutral-100 _font-notosans font-normal leading-tight">
-              저는 이런 삶을 살아왔습니다
+              더 나은 개발자가 될 수 있게
             </h1>
           </div>
           <div className="flex w-fit">
             <h1 className="text-4xl text-neutral-100 _font-notosans font-normal leading-tight">
-              기회를 주시면 열심히 할 자신있습니다.
+              더 좋은 기회를 주시면 감사하겠습니다.
             </h1>
           </div>
         </section>

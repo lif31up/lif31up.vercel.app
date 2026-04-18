@@ -17,7 +17,7 @@ function Topbar({ data, className }: DefaultProps<TopbarDataType>) {
   const id: string = "topbar--0";
   const style: TailProperties = {
     box: "w-full h-fit",
-    layout: "flex items-center justify-between px-8 pt-4",
+    layout: "flex items-center justify-between lg:px-8 lg:pt-4 px-4 pt-2",
     etc: "transition-transform ease-in-out"
   }
   // Render the topbar component
@@ -31,17 +31,19 @@ function Topbar({ data, className }: DefaultProps<TopbarDataType>) {
       >
         <section className="flex items-center gap-1.5">
           <FirstBracketIcon className="mt-0.5 opacity-70" />
-          <h1 className="_font-notosans font-semibold text-white text-opacity-70">DEV PORTFOLIO</h1>
+          <h1 className="lg:flex hidden _font-notosans font-semibold text-white text-opacity-90">DEV PORTFOLIO</h1>
         </section>
         <section className="flex items-center gap-6">
-          <button>
+          <section className="lg:flex hidden items-center gap-6">
+            <button>
               <Share08Icon className="opacity-70"/>
-          </button>
-          <button>
-            <MoreVerticalCircle01Icon className="opacity-70"/>
-          </button>
+            </button>
+            <button>
+              <MoreVerticalCircle01Icon className="opacity-70"/>
+            </button>
+          </section>
           <button title="hero" className={cn(HeroButtonStyle)} style={{ height: data.height}}>
-            <h2 className="mt-0.5 font-medium _font-notosans text-sm">
+            <h2 className="mt-0.5 font-medium _font-notosans text-sm text-white text-opacity-90">
               이 웹 서비스의 레포지토리
             </h2>
           </button>
@@ -55,7 +57,7 @@ export default Topbar;
 
 const HeroButtonStyle: TailProperties = {
   layout: "flex items-center justify-center gap-4",
-  bg_border: "bg-indigo-600 bg-opacity-80",
+  bg_border: "bg-indigo-700 bg-opacity-90",
   box: "w-fit px-6 pb-1",
   etc: "lg:rounded-xs rounded-full",
   typo: "text-white text-opacity-70",

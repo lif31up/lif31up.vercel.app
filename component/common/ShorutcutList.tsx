@@ -22,7 +22,7 @@ function ShortcutPresenter({ data }: DefaultProps<ShortcutDataType>) {
   const style: TailProperties = {
     box: "lg:w-12 lg:h-12 lg:w-fit lg:h-fit lg:py-3 lg:-mt-0.5 lg:px-5 w-fit h-8 px-4 ml-1",
     layout: "flex items-center justify-center lg:gap-1.5 gap-2",
-    bg_border: "bg-white lg:bg-opacity-5 lg:hover:bg-opacity-10 hover:bg-opacity-10 ",
+    bg_border: "bg-white bg-opacity-5 hover:bg-opacity-10",
     typo: "text-xs text-neutral-400 font-medium",
     etc: "rounded-full",
   }; // style
