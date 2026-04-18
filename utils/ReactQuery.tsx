@@ -2,7 +2,7 @@
 
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import React, { useState } from "react";
-import { atom, RecoilState } from "recoil";
+import { atom } from "recoil";
 
 // Atom definitions
 export const descDataAtom = atom<DescDataType | null>({

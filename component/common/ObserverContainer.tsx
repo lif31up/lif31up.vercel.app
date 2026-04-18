@@ -21,7 +21,7 @@ function ObserverContainer({
   const observerRef = useRef<null | IntersectionObserver>(null);
   let options: object = {
     root: null,
-    rootMargin: "0px",
+    rootMargin: "1px",
     threshold: threshold !== undefined ? threshold : 0.5,
   }; // options
   useEffect(() => {
@@ -37,12 +37,10 @@ function ObserverContainer({
 
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          if (delay === undefined) effectHandler();
-          else setTimeout(effectHandler, delay);
+          setTimeout(effectHandler, delay ? delay : 0);
         } // if
       }); // forEach
     }; // intersectHandler
-
     observerRef.current = new IntersectionObserver(intersectHandler, options);
     observerRef.current.observe(element);
   }, []);
